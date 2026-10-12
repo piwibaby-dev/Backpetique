@@ -1,6 +1,9 @@
 package org.generation.backpetique.config;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.catalina.User;
+import org.generation.backpetique.dtos.UsersRequest;
+import org.generation.backpetique.models.Users;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
