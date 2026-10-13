@@ -40,7 +40,8 @@ public class Users {
     @Column(name = "password_site", length = 250, nullable = false)
     private String passwordSite;
 
-    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, orphanRemoval = true)
+    // CORREGIDO: Se cambió 'mappedBy = "pet"' por 'mappedBy = "userId"'.
+    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL, orphanRemoval = true)
     public List<Pets> pets;
 
 }

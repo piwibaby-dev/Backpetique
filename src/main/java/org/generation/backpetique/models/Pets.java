@@ -30,9 +30,14 @@ public class Pets {
     @Column(name = "pet_size", nullable = false, length = 100)
     private String petSize;
 
+    //relacion con tabla USERS
     @ManyToOne
     @JoinColumn (name = "user_id", nullable = false)
     @JsonIgnore
     private Users userId;
 
+    // relacion con tabla PETSTYPE ---
+    @ManyToOne
+    @JoinColumn(name = "petype_id")
+    private PetsType petType;
 }
