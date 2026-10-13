@@ -43,7 +43,7 @@ public class PetsService {
         pet.setPetAge(petRequest.petAge());
         //COREGIDO: sobreescribia .setPerWeight en vez de escribirlo en .setPetSize
         pet.setPetSize(petRequest.petSize());
-        pet.setPetWeight(petRequest.petWeigth());
+        pet.setPetWeight(petRequest.petWeight());
         pet.setUserId(user);
 
       // 3. Buscar y asignar el PetsType ANTES de guardar
@@ -67,7 +67,7 @@ public class PetsService {
         if (petsRequest.petName() != null) petStored.setPetName(petsRequest.petName());
         if (petsRequest.petAge() != null) petStored.setPetAge(petsRequest.petAge());
         if (petsRequest.petSize() != null) petStored.setPetSize(petsRequest.petSize());
-        if (petsRequest.petWeigth() != null) petStored.setPetWeight(petsRequest.petWeigth());
+        if (petsRequest.petWeight() != null) petStored.setPetWeight(petsRequest.petWeight());
         return petsRepository.save(petStored);
     }
 

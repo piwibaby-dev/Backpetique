@@ -6,7 +6,7 @@ public record PetsRequest(//@NotBlank
                           Long userId,
                           String petName,
                           String petAge,
-                          String petWeigth,
+                          String petWeight,
                           String petSize,
                           Long petTypeId) {
 }
