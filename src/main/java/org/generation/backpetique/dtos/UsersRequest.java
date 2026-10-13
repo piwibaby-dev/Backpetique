@@ -1,6 +1,7 @@
 package org.generation.backpetique.dtos;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.util.Date;
@@ -22,7 +23,9 @@ public record UsersRequest(
         @Size(min = 2 , max = 50)
         String email,
 
-        @NotBlank(message = "No puede estar vacia la fecha ")
+        // CAMBIO AQUÍ: Usar @NotNull para objetos de tipo Date
+        //@NotBlank(message = "No puede estar vacia la fecha ")
+        @NotNull(message = "No puede estar vacia la fecha")
         Date birthDate,
 
         @NotBlank(message = "No puede estar vacia su contraseña ")

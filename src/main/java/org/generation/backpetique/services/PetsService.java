@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import org.generation.backpetique.dtos.PetsRequest;
 import org.generation.backpetique.exceptions.ResourceNotFoundException;
 import org.generation.backpetique.models.Pets;
+import org.generation.backpetique.models.PetsType;
 import org.generation.backpetique.models.Users;
 import org.generation.backpetique.repository.PetsRepository;
+import org.generation.backpetique.repository.PetsTypeRepository;
 import org.generation.backpetique.repository.UsersRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,10 +18,11 @@ import java.util.List;
 public class PetsService {
     private PetsRepository petsRepository;
     private UsersRepository usersRepository;
+    private PetsTypeRepository petsTypeRepository; // Se agrego para enlazar tipo de mascota con mascota
 
     public List<Pets> getAllByUserId (Long userId){
         if (!usersRepository.existsById(userId))throw new ResourceNotFoundException("Usuario con el id "+ userId+ " no encontrado");
-        return petsRepository.findByUsersId(userId);
+        return petsRepository.findByUserId(userId);
     }
 
     public Pets getPetById(Long petId){
@@ -38,14 +41,24 @@ public class PetsService {
         Pets pet = new Pets();
         pet.setPetName(petRequest.petName());
         pet.setPetAge(petRequest.petAge());
-        pet.setPetWeight(petRequest.petSize());
+        //COREGIDO: sobreescribia .setPerWeight en vez de escribirlo en .setPetSize
+        pet.setPetSize(petRequest.petSize());
         pet.setPetWeight(petRequest.petWeigth());
         pet.setUserId(user);
-        // 3. guardarlo en album
+
+      // 3. Buscar y asignar el PetsType ANTES de guardar
+        if (petRequest.petTypeId() != null) {
+            PetsType petsType = petsTypeRepository.findById(petRequest.petTypeId()).orElseThrow(
+                    () -> new ResourceNotFoundException("Tipo de mascota con el id " + petRequest.petTypeId() + " no encontrado")
+            );
+            pet.setPetType(petsType);
+        }
+        //  guardarlo en album
         petsRepository.save(pet);
         // 4. actualizar la lista de albums del artista
         user.getPets().add(pet);
         usersRepository.save(user);
+
         return pet;
     }
 
