@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor // Te crea un constructor con todos los atributos de tu clase
@@ -38,5 +39,8 @@ public class Users {
 
     @Column(name = "password_site", length = 250, nullable = false)
     private String passwordSite;
+
+    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL, orphanRemoval = true)
+    public List<Pets> pets;
 
 }
