@@ -40,9 +40,9 @@ public class OrdersService {
         );
 
 
-        Payment payment = paymentRepository.findById(newOrder.paymentId()).orElseThrow(
-                () -> new ResourceNotFoundException("Pago con el id " + newOrder.paymentId() + " no encontrado")
-        );
+//        Payment payment = paymentRepository.findById(newOrder.paymentId()).orElseThrow(
+//                () -> new ResourceNotFoundException("Pago con el id " + newOrder.paymentId() + " no encontrado")
+//        );
 
 
         Orders order = new Orders();
@@ -50,7 +50,7 @@ public class OrdersService {
         order.setStatusO(newOrder.statusO() != null ? newOrder.statusO() : "PENDING");
         order.setOrderDate(LocalDateTime.now());
         order.setUserId(user);
-        order.setPaymentId(payment);
+//        order.setPaymentId(payment);
         //order.setPaymentId(newOrder.paymentId());
 
         return orderRepository.save(order);
@@ -76,12 +76,12 @@ public class OrdersService {
             );
             oldOrder.setUserId(user);
         }
-        if (updateOrder.paymentId() != null) {
-            Payment payment = paymentRepository.findById(updateOrder.paymentId()).orElseThrow(
-                    () -> new ResourceNotFoundException("Pago con el id " + updateOrder.paymentId() + " no encontrado")
-            );
-            oldOrder.setPaymentId(payment);
-        }
+//        if (updateOrder.paymentId() != null) {
+//            Payment payment = paymentRepository.findById(updateOrder.paymentId()).orElseThrow(
+//                    () -> new ResourceNotFoundException("Pago con el id " + updateOrder.paymentId() + " no encontrado")
+//            );
+//            oldOrder.setPaymentId(payment);
+//        }
 
         return orderRepository.save(oldOrder);
     }

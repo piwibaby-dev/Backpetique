@@ -1,9 +1,18 @@
 package org.generation.backpetique.models;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.math.BigDecimal;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 @Table(name = "products")
 public class Product {
 
@@ -24,6 +33,7 @@ public class Product {
     @Column(nullable = false)
     private Integer stock = 0;
 
+    @Column
     private Boolean prescription = false;
 
     @Column(precision = 8, scale = 2)
@@ -41,93 +51,4 @@ public class Product {
     @Column(name = "brand_id")
     private Integer brandId;
 
-    public Product() {}
-
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-    public String getSku() {
-        return sku;
-    }
-
-    public void setSku(String sku) {
-        this.sku = sku;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public Integer getStock() {
-        return stock;
-    }
-
-    public void setStock(Integer stock) {
-        this.stock = stock;
-    }
-
-    public Boolean getPrescription() {
-        return prescription;
-    }
-
-    public void setPrescription(Boolean prescription) {
-        this.prescription = prescription;
-    }
-
-    public BigDecimal getWeight() {
-        return weight;
-    }
-
-    public void setWeight(BigDecimal weight) {
-        this.weight = weight;
-    }
-
-    public String getUnit() {
-        return unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
-
-    public String getUrlImg() {
-        return urlImg;
-    }
-
-    public void setUrlImg(String urlImg) {
-        this.urlImg = urlImg;
-    }
-
-    public Integer getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    public Integer getBrandId() {
-        return brandId;
-    }
-
-    public void setBrandId(Integer brandId) {
-        this.brandId = brandId;
-    }
 }
