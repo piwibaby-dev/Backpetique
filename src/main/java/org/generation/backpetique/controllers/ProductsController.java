@@ -12,11 +12,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/products")
-@CrossOrigin(origins = "*")
 public class ProductsController {
 
+    private final ProductsService productsService;
+
     @Autowired
-    private ProductsService productsService;
+    public ProductsController(ProductsService productsService) {
+        this.productsService = productsService;
+    }
 
     @GetMapping
     public ResponseEntity<List<Product>> getAllProducts() {
@@ -40,9 +43,9 @@ public class ProductsController {
         return ResponseEntity.ok(updatedProduct);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
-        productsService.deleteProduct(id);
-        return ResponseEntity.noContent().build();
+    @DeleteMapping("/{productId}")
+    public ResponseEntity<Product> deleteProduct(@PathVariable("productId") Long id) {
+        Product deleteProduct = productsService.deleteProduct(id);
+        return ResponseEntity.ok(deleteProduct);
     }
 }
