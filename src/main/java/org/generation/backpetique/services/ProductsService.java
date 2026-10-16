@@ -2,7 +2,7 @@ package org.generation.backpetique.services;
 
 import org.generation.backpetique.dtos.ProductsRequest;
 import org.generation.backpetique.exceptions.ResourceNotFoundException;
-import org.generation.backpetique.models.Product;
+import org.generation.backpetique.models.Products;
 import org.generation.backpetique.repository.PetsRepository;
 import org.generation.backpetique.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,18 +21,18 @@ public class ProductsService {
         this.productRepository = productRepository;
     }
 
-    public List<Product> getAllProducts() {
+    public List<Products> getAllProducts() {
         return productRepository.findAll();
     }
 
-    public Product getProductById(Long id) {
+    public Products getProductById(Long id) {
         return productRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Producto no encontrado con el id: " + id)
         );
     }
 
-    public Product createProduct(ProductsRequest productsRequest) {
-        Product product = new Product();
+    public Products createProduct(ProductsRequest productsRequest) {
+        Products product = new Products();
         product.setSku(productsRequest.sku());
         product.setTitle(productsRequest.title());
         product.setPrice(productsRequest.price());
@@ -46,8 +46,8 @@ public class ProductsService {
         return productRepository.save(product);
     }
 
-    public Product updateProduct(Long id, ProductsRequest productsRequest) {
-        Product product = getProductById(id);
+    public Products updateProduct(Long id, ProductsRequest productsRequest) {
+        Products product = getProductById(id);
         if(productsRequest.sku() != null) product.setSku(productsRequest.sku());
         if(productsRequest.title() != null) product.setTitle(productsRequest.title());
         if(productsRequest.price() != null) product.setPrice(productsRequest.price());
@@ -61,8 +61,8 @@ public class ProductsService {
         return productRepository.save(product);
     }
 
-    public Product deleteProduct(Long id) {
-        Product product = getProductById(id);
+    public Products deleteProduct(Long id) {
+        Products product = getProductById(id);
         productRepository.delete(product);
         return product;
     }

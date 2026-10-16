@@ -28,8 +28,8 @@ public class BrandController {
         return ResponseEntity.ok(brandList);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Brand> getBrandById(@PathVariable Long id) {
+    @GetMapping("{id}")
+    public ResponseEntity<Brand> getBrandById(@PathVariable("id") Long id) {
         return ResponseEntity.ok(brandService.getBrandById(id));
     }
 
@@ -43,14 +43,14 @@ public class BrandController {
         return ResponseEntity.created(location).body(createdBrand);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Brand> updateBrand(@PathVariable Long id, @Valid
+    @PutMapping("{id}")
+    public ResponseEntity<Brand> updateBrand(@PathVariable("id") Long id, @Valid
     @RequestBody BrandRequest brandRequest) {
         return ResponseEntity.ok(brandService.updateBrand(id, brandRequest));
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteBrand(@PathVariable Long id) {
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> deleteBrand(@PathVariable("id") Long id) {
         brandService.deleteBrand(id);
         return ResponseEntity.noContent().build();
     }

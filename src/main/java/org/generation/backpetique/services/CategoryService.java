@@ -30,7 +30,6 @@ public class CategoryService {
 
 //Obtener todas las categorias
     public List<Category> getAllCategory (){
-
         return categoryRepository.findAll();
     }
 
@@ -38,8 +37,6 @@ public class CategoryService {
 
     public Category getCategoryById(Long id){
         return categoryRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("Categoria con el Id " + id + " no encontrado" ));
-
-
     }
 
     //Crear Categoria Nueva!

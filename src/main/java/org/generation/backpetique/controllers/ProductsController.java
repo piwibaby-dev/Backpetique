@@ -1,7 +1,7 @@
 package org.generation.backpetique.controllers;
 
 import org.generation.backpetique.dtos.ProductsRequest;
-import org.generation.backpetique.models.Product;
+import org.generation.backpetique.models.Products;
 import org.generation.backpetique.services.ProductsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,30 +22,30 @@ public class ProductsController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Product>> getAllProducts() {
+    public ResponseEntity<List<Products>> getAllProducts() {
         return ResponseEntity.ok(productsService.getAllProducts());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Product> getProductById(@PathVariable Long id) {
+    public ResponseEntity<Products> getProductById(@PathVariable Long id) {
         return ResponseEntity.ok(productsService.getProductById(id));
     }
 
     @PostMapping
-    public ResponseEntity<Product> createProduct(@RequestBody ProductsRequest request) {
-        Product newProduct = productsService.createProduct(request);
+    public ResponseEntity<Products> createProduct(@RequestBody ProductsRequest request) {
+        Products newProduct = productsService.createProduct(request);
         return new ResponseEntity<>(newProduct, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody ProductsRequest request) {
-        Product updatedProduct = productsService.updateProduct(id, request);
+    public ResponseEntity<Products> updateProduct(@PathVariable Long id, @RequestBody ProductsRequest request) {
+        Products updatedProduct = productsService.updateProduct(id, request);
         return ResponseEntity.ok(updatedProduct);
     }
 
     @DeleteMapping("/{productId}")
-    public ResponseEntity<Product> deleteProduct(@PathVariable("productId") Long id) {
-        Product deleteProduct = productsService.deleteProduct(id);
+    public ResponseEntity<Products> deleteProduct(@PathVariable("productId") Long id) {
+        Products deleteProduct = productsService.deleteProduct(id);
         return ResponseEntity.ok(deleteProduct);
     }
 }

@@ -14,20 +14,12 @@ public class Brand {
     @Column(name = "brand_name", nullable = false, length = 50)
     private String brandName;
 
-    @Column(name = "products_id")
-    private Long productsId;
-
-    @Column(name = "category_id")
-    private Long categoryId;
-
     public Brand(){
     }
 
     public  Brand (Long brandId, String brandName, Long productsId, Long categoryId){
         this.brandId = brandId;
         this.brandName = brandName;
-        this.productsId = productsId;
-        this.categoryId = categoryId;
     }
 
     // Getter y Setters
@@ -45,21 +37,5 @@ public class Brand {
 
     public void setBrandName(String brandName) {
         this.brandName = brandName;
-    }
-
-    public Long getProductsId() {
-        return productsId;
-    }
-
-    public void setProductsId(Long productsId) {
-        this.productsId = productsId;
-    }
-
-    public Long getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
     }
 }

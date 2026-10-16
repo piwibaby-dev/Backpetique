@@ -2,7 +2,6 @@ package org.generation.backpetique.services;
 
 import lombok.AllArgsConstructor;
 import org.generation.backpetique.dtos.OrdersRequest;
-import org.generation.backpetique.dtos.PetsRequest;
 import org.generation.backpetique.exceptions.ResourceNotFoundException;
 import org.generation.backpetique.models.*;
 import org.generation.backpetique.repository.*;
@@ -40,9 +39,9 @@ public class OrdersService {
         );
 
 
-//        Payment payment = paymentRepository.findById(newOrder.paymentId()).orElseThrow(
-//                () -> new ResourceNotFoundException("Pago con el id " + newOrder.paymentId() + " no encontrado")
-//        );
+        Payment payment = paymentRepository.findById(newOrder.paymentId()).orElseThrow(
+                () -> new ResourceNotFoundException("Pago con el id " + newOrder.paymentId() + " no encontrado")
+        );
 
 
         Orders order = new Orders();
@@ -50,7 +49,7 @@ public class OrdersService {
         order.setStatusO(newOrder.statusO() != null ? newOrder.statusO() : "PENDING");
         order.setOrderDate(LocalDateTime.now());
         order.setUserId(user);
-//        order.setPaymentId(payment);
+        order.setPaymentId(payment);
         //order.setPaymentId(newOrder.paymentId());
 
         return orderRepository.save(order);
@@ -76,12 +75,12 @@ public class OrdersService {
             );
             oldOrder.setUserId(user);
         }
-//        if (updateOrder.paymentId() != null) {
-//            Payment payment = paymentRepository.findById(updateOrder.paymentId()).orElseThrow(
-//                    () -> new ResourceNotFoundException("Pago con el id " + updateOrder.paymentId() + " no encontrado")
-//            );
-//            oldOrder.setPaymentId(payment);
-//        }
+        if (updateOrder.paymentId() != null) {
+            Payment payment = paymentRepository.findById(updateOrder.paymentId()).orElseThrow(
+                    () -> new ResourceNotFoundException("Pago con el id " + updateOrder.paymentId() + " no encontrado")
+            );
+            oldOrder.setPaymentId(payment);
+        }
 
         return orderRepository.save(oldOrder);
     }
