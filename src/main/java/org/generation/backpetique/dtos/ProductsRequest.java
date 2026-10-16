@@ -11,6 +11,6 @@ public record ProductsRequest (
         BigDecimal weight,
         String unit,
         String urlImg,
-        Integer categoryId,
-        Integer brandId
+        Long categoryId,
+        Long brandId
 ){}

@@ -2,7 +2,12 @@ package org.generation.backpetique.services;
 
 import org.generation.backpetique.dtos.ProductsRequest;
 import org.generation.backpetique.exceptions.ResourceNotFoundException;
+import org.generation.backpetique.models.Brand;
+import org.generation.backpetique.models.Category;
 import org.generation.backpetique.models.Products;
+import org.generation.backpetique.models.Users;
+import org.generation.backpetique.repository.BrandRepository;
+import org.generation.backpetique.repository.CategoryRepository;
 import org.generation.backpetique.repository.PetsRepository;
 import org.generation.backpetique.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +18,15 @@ import java.util.List;
 @Service
 public class ProductsService {
 
-    private  final ProductRepository productRepository;
-    @Autowired
-    private PetsRepository petsRepository;
+    private final ProductRepository productRepository;
+    private final CategoryRepository categoryRepository;
+    private final BrandRepository brandRepository;
 
-    public ProductsService(ProductRepository productRepository) {
+
+    public ProductsService(ProductRepository productRepository, CategoryRepository categoryRepository, BrandRepository brandRepository) {
         this.productRepository = productRepository;
+        this.categoryRepository = categoryRepository;
+        this.brandRepository = brandRepository;
     }
 
     public List<Products> getAllProducts() {
@@ -32,6 +40,13 @@ public class ProductsService {
     }
 
     public Products createProduct(ProductsRequest productsRequest) {
+        Category category = categoryRepository.findById(productsRequest.categoryId()).orElseThrow(
+                () -> new ResourceNotFoundException("Usuario con el id " + productsRequest.categoryId() + " no encontrado")
+        );
+        Brand brand = brandRepository.findById(productsRequest.brandId()).orElseThrow(
+                () -> new ResourceNotFoundException("Usuario con el id " + productsRequest.brandId() + " no encontrado")
+        );
+
         Products product = new Products();
         product.setSku(productsRequest.sku());
         product.setTitle(productsRequest.title());
@@ -41,8 +56,8 @@ public class ProductsService {
         product.setWeight(productsRequest.weight());
         product.setUnit(productsRequest.unit());
         product.setUrlImg(productsRequest.urlImg());
-        product.setCategoryId(productsRequest.categoryId());
-        product.setBrandId(productsRequest.brandId());
+        product.setCategoryId(category);
+        product.setBrandId(brand);
         return productRepository.save(product);
     }
 
@@ -56,8 +71,6 @@ public class ProductsService {
         if(productsRequest.weight() != null) product.setWeight(productsRequest.weight());
         if(productsRequest.unit() != null) product.setUnit(productsRequest.unit());
         if(productsRequest.urlImg() != null) product.setUrlImg(productsRequest.urlImg());
-        if(productsRequest.categoryId() != null) product.setCategoryId(productsRequest.categoryId());
-        if(productsRequest.brandId() != null) product.setBrandId(productsRequest.brandId());
         return productRepository.save(product);
     }
 

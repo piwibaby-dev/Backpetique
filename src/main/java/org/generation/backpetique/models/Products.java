@@ -1,5 +1,6 @@
 package org.generation.backpetique.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -45,10 +46,12 @@ public class Products {
     @Column(name = "url_img", length = 255)
     private String urlImg;
 
-    @Column(name = "category_id")
-    private Integer categoryId;
+    @ManyToOne
+    @JoinColumn(name = "category_id",nullable = false)
+    private Category categoryId;
 
-    @Column(name = "brand_id")
-    private Integer brandId;
+    @ManyToOne
+    @JoinColumn(name = "brand_id",nullable = false)
+    private Brand brandId;
 
 }
