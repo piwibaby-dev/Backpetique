@@ -34,10 +34,10 @@ public class Orders {
     @Column(name = "status_o", length = 100)
     private String statusO;
 
-//    @ManyToOne
-//    @JoinColumn(name = "payment_id") // Puede llevar nullable = false si el pago es obligatorio
-//    @JsonIgnore
-//    private Payment paymentId;
+    @ManyToOne
+    @JoinColumn(name = "payment_id") // Puede llevar nullable = false si el pago es obligatorio
+    @JsonIgnore
+    private Payment paymentId;
 
 
     @ManyToOne

@@ -37,7 +37,7 @@ public class Pets {
     private Users userId;
 
     // relacion con tabla PETSTYPE ---
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "petype_id")
     private PetsType petType;
 }

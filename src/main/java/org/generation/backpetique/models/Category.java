@@ -25,7 +25,7 @@ public class Category {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column (name =  "category_name", nullable = false, length = 50)
+    @Column (name = "category_name", nullable = false, length = 50)
     private String categoryName;
 //similar a marify de un album relacionado a tracks!!!!!!!
 //Relacion con Tabla productos (modelos)

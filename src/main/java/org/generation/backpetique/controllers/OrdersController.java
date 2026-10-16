@@ -40,7 +40,7 @@ public class OrdersController {
      * Obtiene una orden por su id
      */
     @GetMapping("/{id}")
-    public ResponseEntity<Orders> getOrderById(@PathVariable Long id) {
+    public ResponseEntity<Orders> getOrderById(@PathVariable("id") Long id) {
         return ResponseEntity.ok(ordersService.getOrderById(id));
     }
 
@@ -64,9 +64,9 @@ public class OrdersController {
      * http://localhost:8080/api/orders/1
      * Actualiza una orden
      */
-    @PutMapping("/{id}")
+    @PutMapping("{id}")
     public ResponseEntity<Orders> updateOrder(
-            @PathVariable Long id,
+            @PathVariable("id") Long id,
             @Valid @RequestBody OrdersRequest updateData) {
         Orders updatedOrder = ordersService.updateOrder(id, updateData);
         return ResponseEntity.ok(updatedOrder);
@@ -77,13 +77,12 @@ public class OrdersController {
      * http://localhost:8080/api/orders/1
      * Elimina una orden
      */
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Orders> deleteOrder(@PathVariable Long id) {
+    @DeleteMapping("{id}")
+    public ResponseEntity<Orders> deleteOrder(@PathVariable("id") Long id) {
         Orders orders = ordersRepository.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException("Orden con el id " + id + " no encontrada")
         );
         ordersRepository.delete(orders);
         return ResponseEntity.ok(orders);
     }
-
 }

@@ -23,5 +23,4 @@ public class SecurityConfig {
                 .httpBasic(httpBasic -> httpBasic.disable());
         return http.build();
     }
-
 }

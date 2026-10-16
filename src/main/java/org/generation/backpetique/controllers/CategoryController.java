@@ -16,13 +16,6 @@ import java.util.List;
 
 @AllArgsConstructor
 @RequestMapping (path = "/api/categories")
-
-
-
-
-
-
-
 public class CategoryController {
 
     private final CategoryService categoryService;
@@ -30,7 +23,14 @@ public class CategoryController {
     // GET: todas las categorías
     @GetMapping
     public ResponseEntity<List<Category>> getAllCategories() {
-        return ResponseEntity.ok(categoryService.getAllCategory());
+        List<Category> categories = categoryService.getAllCategory();
+        return ResponseEntity.ok(categories);
+    }
+
+    //GET: Por Id
+    @GetMapping(path = "{categoryId}")
+    public ResponseEntity<Category> getCategorieById(@PathVariable("categoryId") Long id) {
+        return ResponseEntity.ok(categoryService.getCategoryById(id));
     }
     // POST: crear nueva categoría
     @PostMapping

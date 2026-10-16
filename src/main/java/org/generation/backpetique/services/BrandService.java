@@ -30,15 +30,11 @@ public class BrandService {
     public Brand createBrand(BrandRequest request) {
         Brand brand = new Brand();
         brand.setBrandName(request.brandName());
-        brand.setProductsId(request.productsId());
-        brand.setCategoryId(request.categoryId());
         return brandRepository.save(brand);
     }
     public Brand updateBrand(Long id, BrandRequest request) {
         Brand existingBrand = getBrandById(id);
         existingBrand.setBrandName(request.brandName());
-        existingBrand.setProductsId(request.productsId());
-        existingBrand.setCategoryId(request.categoryId());
         return brandRepository.save(existingBrand);
     }
     public void deleteBrand(Long id) {
