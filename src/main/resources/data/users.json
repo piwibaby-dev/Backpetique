@@ -1,0 +1,139 @@
+[
+  {
+    "userName": "Fer",
+    "surNames": "Jiménez",
+    "email": "fer@boupetique.mx",
+    "phoneNumber": "5512345601",
+    "birthDate": "1998-07-26",
+    "passwordSite": "Test12345",
+    "pets": [
+      {
+        "petName": "Sally",
+        "petType": "Gato",
+        "petAge": "Entre 1 y 2 años",
+        "petWeight": "Entre 1 kg y 3 kg",
+        "petSize": "Pequeña"
+      }
+    ]
+  },
+  {
+    "userName": "Zayra",
+    "surNames": "Boupetique",
+    "email": "zayra@boupetique.mx",
+    "phoneNumber": "5512345602",
+    "birthDate": "1990-07-22",
+    "passwordSite": "Test12345",
+    "pets": [
+      {
+        "petName": "Ares",
+        "petType": "Perro",
+        "petAge": "Entre 4 y 5 años",
+        "petWeight": "Entre 10 kg y 25 kg",
+        "petSize": "Grande"
+      }
+    ]
+  },
+  {
+    "userName": "Dayana",
+    "surNames": "Boupetique",
+    "email": "dayana@boupetique.mx",
+    "phoneNumber": "5512345603",
+    "birthDate": "1990-11-05",
+    "passwordSite": "Test12345",
+    "pets": [
+      {
+        "petName": "Canela",
+        "petType": "Perro",
+        "petAge": "Entre 2 y 3 años",
+        "petWeight": "Entre 10 kg y 25 kg",
+        "petSize": "Mediana"
+      }
+    ]
+  },
+  {
+    "userName": "Andrés",
+    "surNames": "Boupetique",
+    "email": "andres@boupetique.mx",
+    "phoneNumber": "5512345604",
+    "birthDate": "1990-01-30",
+    "passwordSite": "Test12345",
+    "pets": []
+  },
+  {
+    "userName": "Sebastián",
+    "surNames": "Boupetique",
+    "email": "sebastian@boupetique.mx",
+    "phoneNumber": "5512345605",
+    "birthDate": "1990-09-18",
+    "passwordSite": "Test12345",
+    "pets": [
+      {
+        "petName": "Pepillo",
+        "petType": "Gato",
+        "petAge": "Entre 1 y 2 años",
+        "petWeight": "Entre 3 kg y 10 kg",
+        "petSize": "Pequeña"
+      }
+    ]
+  },
+  {
+    "userName": "Eduardo",
+    "surNames": "Boupetique",
+    "email": "eduardo@boupetique.mx",
+    "phoneNumber": "5512345606",
+    "birthDate": "1990-04-09",
+    "passwordSite": "Test12345",
+    "pets": [
+      {
+        "petName": "Morita",
+        "petType": "Perro",
+        "petAge": "Entre 6 y 7 años",
+        "petWeight": "Entre 1 kg y 3 kg",
+        "petSize": "Minis"
+      }
+    ]
+  },
+  {
+    "userName": "Jaime",
+    "surNames": "Boupetique",
+    "email": "jaime@boupetique.mx",
+    "phoneNumber": "5512345607",
+    "birthDate": "1990-12-01",
+    "passwordSite": "Test12345",
+    "pets": [
+      {
+        "petName": "Chester",
+        "petType": "Perro",
+        "petAge": "Entre 3 y 4 años",
+        "petWeight": "Entre 25 kg y 45 kg",
+        "petSize": "Grande"
+      }
+    ]
+  },
+  {
+    "userName": "Christopher",
+    "surNames": "Boupetique",
+    "email": "christopher@boupetique.mx",
+    "phoneNumber": "5512345608",
+    "birthDate": "1990-06-27",
+    "passwordSite": "Test12345",
+    "pets": []
+  },
+  {
+    "userName": "Liz",
+    "surNames": "Boupetique",
+    "email": "liz@boupetique.mx",
+    "phoneNumber": "5512345609",
+    "birthDate": "1990-02-16",
+    "passwordSite": "Test12345",
+    "pets": [
+      {
+        "petName": "Gandalf",
+        "petType": "Gato",
+        "petAge": "Entre 7 y 8 años",
+        "petWeight": "Entre 3 kg y 10 kg",
+        "petSize": "Pequeña"
+      }
+    ]
+  }
+]

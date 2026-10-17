@@ -23,6 +23,11 @@ public class OrdersService {
         return orderRepository.findAll();
     }
 
+    public List<Orders> getOrdersByUserId(Long userId) {
+        if (!userRepository.existsById(userId)) throw new ResourceNotFoundException("Usuario con el id " + userId + " no encontrado");
+        return orderRepository.findByUserId_IdOrderByOrderDateDesc(userId);
+    }
+
     //Obtener una orden por id
     public Orders getOrderById(Long id) {
         return orderRepository.findById(id).orElseThrow(
@@ -39,18 +44,16 @@ public class OrdersService {
         );
 
 
-        Payment payment = paymentRepository.findById(newOrder.paymentId()).orElseThrow(
-                () -> new ResourceNotFoundException("Pago con el id " + newOrder.paymentId() + " no encontrado")
-        );
-
-
         Orders order = new Orders();
         order.setTotalAmount(newOrder.totalAmount());
-        order.setStatusO(newOrder.statusO() != null ? newOrder.statusO() : "PENDING");
+        order.setStatusO(newOrder.statusO() != null ? newOrder.statusO() : "PENDIENTE");
         order.setOrderDate(LocalDateTime.now());
         order.setUserId(user);
-        order.setPaymentId(payment);
-        //order.setPaymentId(newOrder.paymentId());
+        if (newOrder.paymentId() != null) {
+            order.setPaymentId(paymentRepository.findById(newOrder.paymentId()).orElseThrow(
+                    () -> new ResourceNotFoundException("Pago con el id " + newOrder.paymentId() + " no encontrado")
+            ));
+        }
 
         return orderRepository.save(order);
     }

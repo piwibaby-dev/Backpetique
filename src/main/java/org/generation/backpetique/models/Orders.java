@@ -37,7 +37,6 @@ public class Orders {
 
     @ManyToOne
     @JoinColumn(name = "payment_id") // Puede llevar nullable = false si el pago es obligatorio
-    @JsonIgnore
     private Payment paymentId;
 
 

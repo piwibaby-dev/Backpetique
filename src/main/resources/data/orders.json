@@ -1,0 +1,142 @@
+[
+  {
+    "email": "fer@boupetique.mx",
+    "status": "ENTREGADO",
+    "paymentMethod": "Tarjeta",
+    "daysAgo": 32,
+    "items": [
+      {
+        "sku": "47",
+        "quantity": 3
+      },
+      {
+        "sku": "30",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "email": "fer@boupetique.mx",
+    "status": "PAGADO",
+    "paymentMethod": "PayPal",
+    "daysAgo": 2,
+    "items": [
+      {
+        "sku": "50",
+        "quantity": 2
+      },
+      {
+        "sku": "55",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "email": "zayra@boupetique.mx",
+    "status": "ENTREGADO",
+    "paymentMethod": "Tarjeta",
+    "daysAgo": 20,
+    "items": [
+      {
+        "sku": "32",
+        "quantity": 1
+      },
+      {
+        "sku": "40",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "email": "dayana@boupetique.mx",
+    "status": "ENVIADO",
+    "paymentMethod": "OXXO",
+    "daysAgo": 4,
+    "items": [
+      {
+        "sku": "39",
+        "quantity": 1
+      },
+      {
+        "sku": "46",
+        "quantity": 2
+      }
+    ]
+  },
+  {
+    "email": "sebastian@boupetique.mx",
+    "status": "PENDIENTE",
+    "paymentMethod": "OXXO",
+    "daysAgo": 1,
+    "items": [
+      {
+        "sku": "48",
+        "quantity": 2
+      },
+      {
+        "sku": "43",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "email": "eduardo@boupetique.mx",
+    "status": "ENTREGADO",
+    "paymentMethod": "Tarjeta",
+    "daysAgo": 45,
+    "items": [
+      {
+        "sku": "36",
+        "quantity": 1
+      },
+      {
+        "sku": "41",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "email": "jaime@boupetique.mx",
+    "status": "ENVIADO",
+    "paymentMethod": "Tarjeta",
+    "daysAgo": 6,
+    "items": [
+      {
+        "sku": "34",
+        "quantity": 1
+      },
+      {
+        "sku": "15",
+        "quantity": 1
+      }
+    ]
+  },
+  {
+    "email": "liz@boupetique.mx",
+    "status": "PAGADO",
+    "paymentMethod": "PayPal",
+    "daysAgo": 3,
+    "items": [
+      {
+        "sku": "24",
+        "quantity": 1
+      },
+      {
+        "sku": "53",
+        "quantity": 6
+      }
+    ]
+  },
+  {
+    "email": "andres@boupetique.mx",
+    "status": "CANCELADO",
+    "paymentMethod": "Tarjeta",
+    "daysAgo": 12,
+    "items": [
+      {
+        "sku": "45",
+        "quantity": 1
+      }
+    ]
+  }
+]

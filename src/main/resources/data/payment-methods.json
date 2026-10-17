@@ -1,0 +1,8 @@
+[
+  {"email": "fer@boupetique.mx", "type": "Tarjeta", "alias": "Mi Visa", "holderName": "Fer Jiménez", "brand": "Visa", "last4": "4242", "expiry": "08/28", "isDefault": true},
+  {"email": "fer@boupetique.mx", "type": "PayPal", "alias": "PayPal personal", "paypalEmail": "fer@boupetique.mx", "isDefault": false},
+  {"email": "zayra@boupetique.mx", "type": "Tarjeta", "alias": "Tarjeta de nómina", "holderName": "Zayra Boupetique", "brand": "Mastercard", "last4": "5454", "expiry": "11/27", "isDefault": true},
+  {"email": "dayana@boupetique.mx", "type": "OXXO", "alias": "Pago en efectivo", "isDefault": true},
+  {"email": "jaime@boupetique.mx", "type": "Tarjeta", "alias": "Amex", "holderName": "Jaime Boupetique", "brand": "Amex", "last4": "0005", "expiry": "03/29", "isDefault": true},
+  {"email": "liz@boupetique.mx", "type": "PayPal", "paypalEmail": "liz@boupetique.mx", "isDefault": true}
+]

@@ -5,6 +5,11 @@ import java.math.BigDecimal;
 public record ProductsRequest (
         String sku,
         String title,
+        String description,
+        String species,
+        String subcategory,
+        String lifeStage,
+        String breedSize,
         BigDecimal price,
         Integer stock,
         Boolean prescription,

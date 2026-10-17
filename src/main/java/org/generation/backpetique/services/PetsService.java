@@ -18,11 +18,11 @@ import java.util.List;
 public class PetsService {
     private PetsRepository petsRepository;
     private UsersRepository usersRepository;
-    private PetsTypeRepository petsTypeRepository; // Se agrego para enlazar tipo de mascota con mascota
+    private PetsTypeRepository petsTypeRepository;
 
     public List<Pets> getAllByUserId (Long userId){
         if (!usersRepository.existsById(userId))throw new ResourceNotFoundException("Usuario con el id "+ userId+ " no encontrado");
-        return petsRepository.findByUserId(userId);
+        return petsRepository.findByUserId_Id(userId);
     }
 
     public Pets getPetById(Long petId){
@@ -32,30 +32,23 @@ public class PetsService {
     }
 
     public Pets createPetByUserId (Long userId, PetsRequest petRequest){
-        // Pasos a seguir
-        // 1. Verificar que existe el artista y obtenerlo
         Users user = usersRepository.findById(userId).orElseThrow(
                 () -> new ResourceNotFoundException("Usuario con el id "+ userId+ " no encontrado")
         );
-        // 2. creando objeto para mapear el dto
         Pets pet = new Pets();
         pet.setPetName(petRequest.petName());
         pet.setPetAge(petRequest.petAge());
-        //COREGIDO: sobreescribia .setPerWeight en vez de escribirlo en .setPetSize
         pet.setPetSize(petRequest.petSize());
         pet.setPetWeight(petRequest.petWeight());
         pet.setUserId(user);
 
-      // 3. Buscar y asignar el PetsType ANTES de guardar
         if (petRequest.petTypeId() != null) {
             PetsType petsType = petsTypeRepository.findById(petRequest.petTypeId()).orElseThrow(
                     () -> new ResourceNotFoundException("Tipo de mascota con el id " + petRequest.petTypeId() + " no encontrado")
             );
             pet.setPetType(petsType);
         }
-        //  guardarlo en album
         petsRepository.save(pet);
-        // 4. actualizar la lista de albums del artista
         user.getPets().add(pet);
         usersRepository.save(user);
 
@@ -68,6 +61,12 @@ public class PetsService {
         if (petsRequest.petAge() != null) petStored.setPetAge(petsRequest.petAge());
         if (petsRequest.petSize() != null) petStored.setPetSize(petsRequest.petSize());
         if (petsRequest.petWeight() != null) petStored.setPetWeight(petsRequest.petWeight());
+        if (petsRequest.petTypeId() != null) {
+            PetsType petsType = petsTypeRepository.findById(petsRequest.petTypeId()).orElseThrow(
+                    () -> new ResourceNotFoundException("Tipo de mascota con el id " + petsRequest.petTypeId() + " no encontrado")
+            );
+            petStored.setPetType(petsType);
+        }
         return petsRepository.save(petStored);
     }
 
