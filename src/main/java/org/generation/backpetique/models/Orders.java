@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 
 @Entity
@@ -45,4 +46,6 @@ public class Orders {
     @JsonIgnore
     private Users userId;
 
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "orders")
+    private Set<ProductDetail> productDetails;
 }
