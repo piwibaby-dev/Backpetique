@@ -28,6 +28,21 @@ public class Products {
     @Column(nullable = false, length = 100)
     private String title;
 
+    @Column(length = 500)
+    private String description;
+
+    @Column(length = 50)
+    private String species;
+
+    @Column(length = 100)
+    private String subcategory;
+
+    @Column(name = "life_stage", length = 100)
+    private String lifeStage;
+
+    @Column(name = "breed_size", length = 100)
+    private String breedSize;
+
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal price;
 

@@ -19,7 +19,6 @@ public record OrdersRequest(
         @Size(max = 100, message = "El estado no puede superar los 100 caracteres")
         String statusO,
 
-        @NotNull(message = "El ID del pago es obligatorio")
         Long paymentId,
 
         @NotNull(message = "El ID del usuario es obligatorio")

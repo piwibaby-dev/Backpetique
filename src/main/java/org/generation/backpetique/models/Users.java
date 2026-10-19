@@ -1,6 +1,7 @@
 package org.generation.backpetique.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,6 +38,7 @@ public class Users {
     @Column(name = "birthdate", length = 100, nullable = false)
     private Date birthDate;
 
+    @JsonIgnore
     @Column(name = "password_site", length = 250, nullable = false)
     private String passwordSite;
 
