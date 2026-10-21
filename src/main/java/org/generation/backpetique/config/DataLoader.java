@@ -180,7 +180,7 @@ public class DataLoader implements CommandLineRunner {
                 detail.setProducts(products.get(i));
                 detail.setQuantity(seed.items().get(i).quantity());
                 detail.setUnitPriceHistorical(products.get(i).getPrice());
-                detail.setState(state);
+//                detail.setState(state);
                 productDetailRepository.save(detail);
             }
 
