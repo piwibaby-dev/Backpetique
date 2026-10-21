@@ -48,7 +48,7 @@ public class ProductDetailService {
 
         ProductDetail productDetail = new ProductDetail();
 
-        productDetail.setState("Pendiente");
+//        productDetail.setState("Pendiente");
         productDetail.setOrders(order);
         productDetail.setProducts(producto);
         productDetail.setQuantity(productDetailRequest.quantity());
@@ -58,10 +58,10 @@ public class ProductDetailService {
         return productDetailRepository.save(productDetail);
     }
 
-    public ProductDetail updateState(Long orderId, Long productId, String newState){
-        ProductDetail updateDetail = getProuctDetailById(orderId, productId);
-        updateDetail.setState(newState);
-        return productDetailRepository.save(updateDetail);
-    }
+//    public ProductDetail updateState(Long orderId, Long productId, String newState){
+//        ProductDetail updateDetail = getProuctDetailById(orderId, productId);
+//        updateDetail.setState(newState);
+//        return productDetailRepository.save(updateDetail);
+//    }
 
 }

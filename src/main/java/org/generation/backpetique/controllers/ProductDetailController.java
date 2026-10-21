@@ -39,9 +39,9 @@ public class ProductDetailController {
         return new ResponseEntity<>(newProductDetail, HttpStatus.CREATED);
     }
 
-    @PutMapping("{orderId}/{productId}")
-    public ResponseEntity<ProductDetail> updateProduct(@PathVariable("orderId") Long orderId, @PathVariable("productId") Long productId, @RequestParam String newState) {
-        ProductDetail updatedProductDetail = productDetailService.updateState(orderId, productId,newState);
-        return ResponseEntity.ok(updatedProductDetail);
-    }
+//    @PutMapping("{orderId}/{productId}")
+//    public ResponseEntity<ProductDetail> updateProduct(@PathVariable("orderId") Long orderId, @PathVariable("productId") Long productId, @RequestParam String newState) {
+//        ProductDetail updatedProductDetail = productDetailService.updateState(orderId, productId,newState);
+//        return ResponseEntity.ok(updatedProductDetail);
+//    }
 }

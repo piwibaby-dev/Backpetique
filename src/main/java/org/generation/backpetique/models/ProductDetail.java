@@ -15,8 +15,8 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 public class ProductDetail {
-    @Column(name = "state", nullable = false, length = 50)
-    private String state;
+//    @Column(name = "state", nullable = false, length = 50)
+//    private String state;
     @Column(name = "quantity",nullable = false)
     private Integer quantity;
     @Column(name = "unit_price_historical")
